@@ -83,6 +83,12 @@ $disabled-fade: 0.6;
 .Item {
   @include nav-item-attributes;
   position: relative;
+
+  @include breakpoint-after(nav-min-window-corrected()) {
+    &:not:first-child {
+      margin-top: spacing('extra-tight');
+    }
+  }
 }
 
 .Item-selected {
@@ -338,7 +344,6 @@ $secondary-item-font-size: rem(15px);
   @include safe-area-for(padding-left, 0, left);
 
   + .Section {
-    padding-top: spacing(extra-tight);
     padding-bottom: spacing();
   }
 }
