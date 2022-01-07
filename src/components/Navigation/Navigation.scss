@@ -83,12 +83,6 @@ $disabled-fade: 0.6;
 .Item {
   @include nav-item-attributes;
   position: relative;
-
-  @include breakpoint-after(nav-min-window-corrected()) {
-    &:not:first-child {
-      margin-top: spacing('extra-tight');
-    }
-  }
 }
 
 .Item-selected {
@@ -128,6 +122,10 @@ $disabled-fade: 0.6;
     color: var(--p-text-primary);
     background-color: var(--p-background-pressed);
   }
+
+  @include breakpoint-after(nav-min-window-corrected()) {
+    font-weight: 500;
+  }
 }
 
 .Item-disabled {
@@ -150,7 +148,6 @@ $disabled-fade: 0.6;
 
   @include breakpoint-after(nav-min-window-corrected()) {
     margin-top: spacing(extra-tight);
-    margin-top: rem(2px);
   }
 }
 
@@ -181,7 +178,7 @@ $disabled-fade: 0.6;
 
 .ListItem-hasAction .Item {
   max-width: calc(
-    100% - #{nav(mobile-icon-size) + spacing() * 2 + spacing(extra-tight)}
+    100% - #{nav(icon-size) + spacing() * 2 + spacing(extra-tight)}
   );
 }
 
@@ -264,8 +261,7 @@ $secondary-item-font-size: rem(15px);
     font-weight: 500;
     line-height: nav(item-line-height);
     color: var(--p-text-subdued);
-    padding-left: nav(mobile-icon-size) + spacing(extra-loose) -
-      spacing(extra-tight);
+    padding-left: nav(icon-size) + spacing(extra-loose) - spacing(extra-tight);
 
     &:hover {
       color: var(--p-text-subdued);
@@ -290,8 +286,7 @@ $secondary-item-font-size: rem(15px);
     @include breakpoint-after(nav-min-window-corrected()) {
       font-size: $item-font-size-small;
       line-height: rem(16px);
-      padding-left: nav(desktop-icon-size) + spacing(base-tight) +
-        spacing(base-tight);
+      padding-left: nav(icon-size) + spacing(base-tight);
     }
   }
 
