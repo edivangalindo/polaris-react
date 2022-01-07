@@ -346,6 +346,10 @@ $secondary-item-font-size: rem(15px);
   + .Section {
     padding-bottom: spacing();
   }
+
+  + .Section-withSeparator {
+    padding-top: spacing('extra-tight');
+  }
 }
 
 .Section-fill {
