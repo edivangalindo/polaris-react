@@ -1,14 +1,15 @@
 $item-font-size: rem(16px);
-$item-font-size-small: rem(14px);
-$item-line-height-small: rem(32px);
+$item-font-size-small: rem(12px);
+$item-line-height-small: rem(24px);
 $item-line-height-large: rem(36px);
-$text-line-height: rem(20px);
+$text-line-height: rem(16px);
 $nav-variables: (
   mobile-spacing: rem(10px),
-  desktop-spacing: rem(6px),
+  desktop-spacing: rem(4px),
   mobile-height: rem(40px),
-  desktop-height: rem(32px),
-  icon-size: rem(20px),
+  desktop-height: rem(24px),
+  mobile-icon-size: rem(20px),
+  desktop-icon-size: rem(16px),
   item-line-height: rem(40px),
 );
 @function nav($variable) {
@@ -90,15 +91,17 @@ $nav-animation-variables: (
   );
   flex-shrink: 0;
   align-self: flex-start;
-  width: nav(icon-size);
-  height: nav(icon-size);
+  width: nav(mobile-icon-size);
+  height: nav(mobile-icon-size);
   margin-top: nav(mobile-spacing);
   margin-right: spacing();
   margin-bottom: nav(mobile-spacing);
   @include breakpoint-after(nav-min-window-corrected()) {
     margin-top: nav(desktop-spacing);
-    margin-right: spacing();
+    margin-right: spacing('base-tight');
     margin-bottom: nav(desktop-spacing);
+    height: nav(desktop-icon-size);
+    width: nav(desktop-icon-size);
   }
 
   .Item:hover &,

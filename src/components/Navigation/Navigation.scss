@@ -93,10 +93,9 @@ $disabled-fade: 0.6;
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: rem(1px);
+    bottom: rem(1px);
     left: -1 * spacing(tight);
-    height: 100%;
     width: $active-indicator-width;
     background-color: var(--p-action-primary);
     border-top-right-radius: var(--p-border-radius-base);
@@ -145,6 +144,7 @@ $disabled-fade: 0.6;
 
   @include breakpoint-after(nav-min-window-corrected()) {
     margin-top: spacing(extra-tight);
+    margin-top: rem(2px);
   }
 }
 
@@ -175,7 +175,7 @@ $disabled-fade: 0.6;
 
 .ListItem-hasAction .Item {
   max-width: calc(
-    100% - #{nav(icon-size) + spacing() * 2 + spacing(extra-tight)}
+    100% - #{nav(mobile-icon-size) + spacing() * 2 + spacing(extra-tight)}
   );
 }
 
@@ -258,7 +258,8 @@ $secondary-item-font-size: rem(15px);
     font-weight: 500;
     line-height: nav(item-line-height);
     color: var(--p-text-subdued);
-    padding-left: nav(icon-size) + spacing(extra-loose) - spacing(extra-tight);
+    padding-left: nav(mobile-icon-size) + spacing(extra-loose) -
+      spacing(extra-tight);
 
     &:hover {
       color: var(--p-text-subdued);
@@ -282,7 +283,9 @@ $secondary-item-font-size: rem(15px);
 
     @include breakpoint-after(nav-min-window-corrected()) {
       font-size: $item-font-size-small;
-      line-height: rem(28px);
+      line-height: rem(16px);
+      padding-left: nav(desktop-icon-size) + spacing(base-tight) +
+        spacing(base-tight);
     }
   }
 
@@ -290,6 +293,12 @@ $secondary-item-font-size: rem(15px);
     margin-top: rem(6px);
     margin-bottom: rem(6px);
     line-height: rem(20px);
+
+    @include breakpoint-after(nav-min-window-corrected()) {
+      margin-top: rem(4px);
+      margin-bottom: rem(4px);
+      line-height: rem(16px);
+    }
   }
 
   .Item-selected {
@@ -344,6 +353,7 @@ $secondary-item-font-size: rem(15px);
 
 .SectionHeading {
   @include text-style-subheading;
+  text-transform: none; // Adding this intentionally to override the default subheading styling.
   display: flex;
   align-items: center;
   min-height: nav(desktop-nav-height);
